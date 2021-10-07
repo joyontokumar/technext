@@ -26,8 +26,8 @@ const handleChangeYear = (value) => {
   setYear(value)
 }
   useEffect(async() => {
-    const data =  await dispatch(FetchLaunches(getName, getUpcoming,getStatus, getYear ))
-    return data
+    const launches =  await dispatch(FetchLaunches(getName, getUpcoming,getStatus, getYear ))
+    return launches
   }, [getName, getUpcoming, getStatus, getYear])
     const reseFields = () => {
       window.location.reload()
@@ -46,19 +46,7 @@ return(
               </AutoComplete>
           </Col>
           <Col span={6}>
-            <div className="search-box-shadow status-search">
-                  <Select
-                  style={{width:'100%'}}
-                    placeholder="Is it upcoming?"
-                    onChange={handleChangeUpcoming}
-                  >
-                    <Option value="true">YES</Option>
-                    <Option value="false">NO</Option>
-                  </Select>
-                </div>
-          </Col>
-          <Col span={6}>
-            <div className="search-box-shadow status-search">
+            <div className="search-box">
               <Select
                 style={{width:'100%'}}
                 placeholder="Launch Status"
@@ -70,7 +58,7 @@ return(
             </div>
           </Col>
           <Col span={4}>
-            <div className="search-box-shadow status-search">
+            <div className="search-box">
               <Select
                 style={{width:'100%'}}
                 placeholder="Last Year"
@@ -94,6 +82,18 @@ return(
               </Select>
             </div>
           </Col>
+          <Col span={6}>
+            <div className="search-box">
+              <Select
+              style={{width:'100%'}}
+              placeholder="Is it upcoming?"
+              onChange={handleChangeUpcoming}
+              >
+                <Option value="true">YES</Option>
+                <Option value="false">NO</Option>
+              </Select>
+            </div>
+          </Col>
           <Col span={2}>
             <button
               className="ant-btn ant-btn-primary w-100 bg-danger"
@@ -113,8 +113,8 @@ return(
           ) : (
             <Col span={24}>
               <Row gutter={16}>
-                {data?.arr?.length ? (
-                  data?.arr?.map((item, index)=>(
+                {data?.launches?.length ? (
+                  data?.launches?.map((item, index)=>(
                     <CardView  item={item} key={index} setSingleLaunch={setSingleLaunch}/>
                   ))
                 ) : (
@@ -140,7 +140,7 @@ return(
           >
             <Details singleLaunch={singleLaunch} />
           </Drawer>
-      </Row>
+        </Row>
       </div>
   </div>
 )
