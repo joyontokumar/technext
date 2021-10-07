@@ -1,6 +1,6 @@
 ## **Getting Started**
 
-### **Dev Setup**
+### ** Dev Setup **
 
 ```shell
 # Clone the repo
