@@ -1,12 +1,13 @@
 //  launches
 import { LAUNCHES_SUCCESS } from './types'
-export const FetchLaunches = (getName, getUpcoming, getStatus) => {
+export const FetchLaunches = (getName, getUpcoming, getStatus, getYear) => {
   return (dispatch) => {
     fetch(
       `https://api.spacexdata.com/v3/launches` +
         (getName ? `?rocket_name=${getName}` : ``) +
         (getUpcoming ? `?upcoming=${getUpcoming}` : ``) +
-        (getStatus ? `?launch_success=${getStatus}` : ``),
+        (getStatus ? `?launch_success=${getStatus}` : ``) +
+        (getYear ? `?launch_year=${getYear}` : ``),
       {
         method: 'GET',
         headers: {
