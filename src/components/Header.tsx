@@ -5,7 +5,7 @@ const Header = () => {
     <div className="header-area text-center pt-3 pb-3">
       <Row gutter={16}>
         <Col span={24}>
-          <h2>Our Launch Mission</h2>
+          <h2>Our Launches</h2>
         </Col>
       </Row>
     </div>
