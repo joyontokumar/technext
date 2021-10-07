@@ -1,12 +1,11 @@
 import { LAUNCHES_LOADING, LAUNCHES_SUCCESS } from './types'
 
 const initialState = {
-  arr: [],
+  launches: [],
   error: false,
   success: false,
   loading: true,
 }
-
 const launchReducer = (state = initialState, action) => {
   switch (action.type) {
     case LAUNCHES_LOADING: {
@@ -14,7 +13,7 @@ const launchReducer = (state = initialState, action) => {
     }
     case LAUNCHES_SUCCESS: {
       state = { ...state, ...action.payload }
-      state.arr = action.payload
+      state.launches = action.payload
       state.loading = false
       return state
     }

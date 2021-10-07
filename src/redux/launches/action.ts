@@ -1,6 +1,11 @@
 //  launches
 import { LAUNCHES_LOADING, LAUNCHES_SUCCESS } from './types'
-export const FetchLaunches = (getName, getUpcoming, getStatus, getYear) => {
+export const FetchLaunches = (
+  getName: string,
+  getUpcoming: string,
+  getStatus: boolean,
+  getYear: string
+) => {
   return (dispatch) => {
     dispatch({
       type: LAUNCHES_LOADING,

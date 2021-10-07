@@ -57,6 +57,18 @@ const Details = ({ singleLaunch }): ReactElement => {
             </div>
             <div className="single-info d-flex justify-content-between mb-3">
               <div className="info-heading">
+                <span>YouTube Link</span>
+              </div>
+              <div className="info-content w-50">
+                <span>
+                  <a href={singleLaunch?.links?.video_link}>
+                    {singleLaunch?.links?.video_link}
+                  </a>
+                </span>
+              </div>
+            </div>
+            <div className="single-info d-flex justify-content-between mb-3">
+              <div className="info-heading">
                 <span>YouTube Id</span>
               </div>
               <div className="info-content w-50">
