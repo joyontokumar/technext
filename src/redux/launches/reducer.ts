@@ -1,14 +1,17 @@
-import { LAUNCHES_SUCCESS } from './types'
+import { LAUNCHES_LOADING, LAUNCHES_SUCCESS } from './types'
 
 const initialState = {
   arr: [],
   error: false,
   success: false,
-  loading: false,
+  loading: true,
 }
 
-const authRedcer = (state = initialState, action) => {
+const launchReducer = (state = initialState, action) => {
   switch (action.type) {
+    case LAUNCHES_LOADING: {
+      return state
+    }
     case LAUNCHES_SUCCESS: {
       state = { ...state, ...action.payload }
       state.arr = action.payload
@@ -16,10 +19,10 @@ const authRedcer = (state = initialState, action) => {
       return state
     }
     default: {
-      state.loading = false
+      state.loading = true
       return state
     }
   }
 }
 
-export default authRedcer
+export default launchReducer

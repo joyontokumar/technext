@@ -1,7 +1,10 @@
 //  launches
-import { LAUNCHES_SUCCESS } from './types'
+import { LAUNCHES_LOADING, LAUNCHES_SUCCESS } from './types'
 export const FetchLaunches = (getName, getUpcoming, getStatus, getYear) => {
   return (dispatch) => {
+    dispatch({
+      type: LAUNCHES_LOADING,
+    })
     fetch(
       `https://api.spacexdata.com/v3/launches` +
         (getName ? `?rocket_name=${getName}` : ``) +
@@ -17,7 +20,6 @@ export const FetchLaunches = (getName, getUpcoming, getStatus, getYear) => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log('get all data', data)
         dispatch({ type: LAUNCHES_SUCCESS, payload: data })
       })
       .catch((err) => console.error(err))
